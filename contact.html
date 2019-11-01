@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Re-cycle Contact</title>
+
+	<meta name="description" content="Exploring London an eco-friendly way, on bike.">
+	<meta name="keywords" content="London,Eco-Friendly,Cycling,Bike,Tours,Travel">
+	<meta name="author" content="Linda Lillebø">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+</head>
+
+<body>
+
+	<header class="clearfix">
+		<nav>
+			<ul class="clearfix">
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="tours.html">Tours</a>
+				</li>
+				<li>
+					<a href="about.html">About</a>
+				</li>
+				<li class="active">
+					<a href="contact.html">Contact</a>
+				</li>
+			</ul>
+		</nav>
+		<a href="index.html">
+			<img class="logo" src="images/asset-5.png" alt="logo" width="300">
+		</a>
+		<div class="head-box">
+			<h1>Explore London with our eco-friendly cycling tours</h1>
+		</div>
+	</header>
+
+	<div class="divider"></div>
+
+	<article>
+
+		<div class="grid contact">
+			<div>
+				<h2 class="centered-container">Send us a message here</h2>
+			</div>
+
+			<div class="container">
+				<form action="action_page.php" method="get">
+
+					<label for="name">Name</label> <span class="red">*</span>
+					<span class="error" id="nameError">This field cannot be blank</span>
+					<input type="text" id="name" name="name" placeholder="Your name..">
+
+					<label for="email">Email</label> <span class="red">*</span>
+					<span class="error" id="emailError">Please enter a correct email address</span>
+					<input type="text" id="email" name="email" placeholder="Your email..">
+
+					<label for="message">Message</label>
+					<textarea id="message" name="message" placeholder="Your message.." style="height:150px"></textarea>
+
+					<input type="submit" id="submitContact" value="Send">
+
+					<p class="required"><span class="red">*</span> Indicates required field</p>
+
+				</form>
+			</div>
+
+			<aside>
+				<div class="contact-info">
+					<h3>Email</h3>
+					<p>
+						<a href="mailto:info@re-cycle.com">info@re-cycle.com</a>
+					</p>
+					<h3>Telephone</h3>
+					<p>+47 11 22 33 44</p>
+					<h3>Address</h3>
+					<p>Westminster,
+						<br />London SW1A 1AA,
+						<br />Great Britan</p>
+					<h3>Hours</h3>
+					<p>Mon - Sat 8 am - 4 pm</p>
+				</div>
+
+				<div>
+					<img class="map" src="https://maps.googleapis.com/maps/api/staticmap?center=Westminster,+London&zoom=13&scale=2&size=350x210&maptype=roadmap&format=png&visual_refresh=true&key=AIzaSyAtoilzodZH_BnHTl8XESo9hokgMWdCp2Y"
+					 alt="Google Map of Westminster, London" title="Google map of London">
+				</div>
+			</aside>
+
+		</div>
+
+	</article>
+
+	<footer>
+		<div>
+			<p>Follow us:</p>
+			<a href="www.facebook.com">
+				<i class="fab fa-facebook-square"></i>
+			</a>
+			<a href="www.instagram.com">
+				<i class="fab fa-instagram"></i>
+			</a>
+			<a href="www.twitter.com">
+				<i class="fab fa-twitter-square"></i>
+			</a>
+			<a href="www.tripadvisor.com">
+				<i class="fab fa-tripadvisor"></i>
+			</a>
+			<br />
+			<p>&copy; Re-cycle 2018</p>
+		</div>
+	</footer>
+
+</body>
+
+<script>
+
+var submit = document.getElementById("submitContact");
+
+submit.addEventListener("click", function(e) {
+    e.preventDefault();
+    validateForm();
+});
+
+function validateForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var nameError = document.getElementById("nameError");
+    var emailError = document.getElementById("emailError");
+
+    if (isEmpty(name)) {
+        nameError.style.display = "block";
+    } else {
+        nameError.style.display = "none";
+	}
+	
+    if (!emailRegex.test(email)) {
+        emailError.style.display = "block";
+    } else {
+        emailError.style.display = "none";
+    }
+};
+
+function isEmpty(text) {
+    return (text === undefined || text === "" || text === null);
+}
+</script>
+
+</html>
